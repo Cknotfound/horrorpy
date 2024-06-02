@@ -1,5 +1,5 @@
 .PHONY: clean
 
 clean:
-	rm -rf *.ini
-	rm -rf __pycache__.py*
+	rm -rf *.ini 
+	find . -type d -name "__pycache__" -exec rm -rf {} +
