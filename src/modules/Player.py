@@ -1,12 +1,16 @@
+import pygame
 from pygame.math import Vector2
-from pygame import event
+
+from pygame import KEYDOWN, K_e, event
 
 class Player:
     def __init__(self, position: Vector2):
         self.position = position or Vector2(0, 0)
 
-        events = event.get()
-
+    def handle_movement(self, event: event) -> None:
+        if event.type == KEYDOWN:
+            if event.key == pygame.K_e:
+                pygame.quit()
 
 if __name__ == "__main__":
     print("Testing Player Class...")

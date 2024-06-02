@@ -1,4 +1,6 @@
 import pygame
+from pygame.math import Vector2
+from modules.Player import Player
 from os.path import isfile
 from configparser import ConfigParser
 
@@ -26,6 +28,7 @@ def main() -> None:
     witdh      = resolution.getint("WIDTH")
     height     = resolution.getint("HEIGHT")
 
+    new_player = Player(Vector2(0, 0))
 
     _ = pygame.init()
     screen = pygame.display.set_mode((witdh, height))
@@ -36,9 +39,7 @@ def main() -> None:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-
-        # Game Loop!
-
+            new_player.handle_movement(event)
 
         _ = screen.fill("purple")
         pygame.display.flip()
